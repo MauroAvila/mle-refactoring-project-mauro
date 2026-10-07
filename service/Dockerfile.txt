@@ -1,0 +1,36 @@
+# Stage 1: Obtain the uv binary from the official image
+FROM ghcr.io/astral-sh/uv:0.6.0 AS uv
+
+# Stage 2: Final application image using Python 3.13 slim
+FROM python:3.13-slim-bookworm
+
+WORKDIR /app
+
+# Enable bytecode compilation and use copy link mode for uv
+ENV UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy \
+    PATH="/app/.venv/bin:$PATH"
+
+# Copy uv binaries into system path
+COPY --from=uv /uv /uvx /bin/
+
+# Copy dependency definition files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies into virtualenv using cache mounts for speed
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev --no-install-project
+
+# Copy application source code
+COPY service ./service
+COPY README.md ./
+
+# Install the root project package without re-downloading dependencies
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
+
+# Expose default service port
+EXPOSE 8000
+
+# Run uvicorn directly via the virtualenv binaries in PATH
+CMD ["uvicorn", "service.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,64 @@
+Lée y comprende el siguiente texto, usa esta información para entender la estructura real y actual del proyecto.
+
+Listado de rutas de carpetas
+El n£mero de serie del volumen es C0B3-0470
+C:.
+³   .env
+³   .python-version
+³   estructura.txt
+³   pyproject.toml
+³   
+ÃÄÄÄ.pytest_cache
+³   ³   .gitignore
+³   ³   CACHEDIR.TAG
+³   ³   README.md
+³   ³   
+³   ÀÄÄÄv
+³       ÀÄÄÄcache
+³               lastfailed
+³               nodeids
+³               
+ÃÄÄÄassets
+³       slide-09.09.2026.jpg
+³       
+ÃÄÄÄdata
+³       King_County_House_prices_cleaned.csv
+³       King_County_House_prices_featured.csv
+³       King_County_House_prices_pipeline_output.csv
+³       
+ÃÄÄÄmodel
+³       model.bin
+³       
+ÃÄÄÄservice
+³       .env
+³       database.py
+³       docker-compose.yaml
+³       Dockerfile.txt
+³       main.py
+³       models.py
+³       schemas.py
+³       
+ÃÄÄÄsrc
+³   ³   data_cleaning.py
+³   ³   feature_engineering.py
+³   ³   pipeline.py
+³   ³   train.py
+³   ³   
+³   ÃÄÄÄmle_refactoring_project.egg-info
+³   ³       dependency_links.txt
+³   ³       PKG-INFO
+³   ³       requires.txt
+³   ³       SOURCES.txt
+³   ³       top_level.txt
+³   ³       
+³   ÀÄÄÄ__pycache__
+³           data_cleaning.cpython-313.pyc
+³           feature_engineering.cpython-313.pyc
+³           
+ÀÄÄÄtests
+    ÀÄÄÄunit
+        ³   test_data_processing.py
+        ³   
+        ÀÄÄÄ__pycache__
+                test_data_processing.cpython-313-pytest-9.1.1.pyc
+                
